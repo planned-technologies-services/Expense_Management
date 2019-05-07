@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="ExpenseAllocMaster" alias="ExpenseAllocMaster" created="2019-03-29T11:47:39" modified="2019-03-29T12:27:07" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="eallocmasterid" fieldName="Eallocmasterid" label="Eallocmasterid" />
+    <column name="expense_company_code" fieldName="ExpenseCompanyCode" label="Certify Company Code" />
+    <column name="allocation_company_code" fieldName="AllocationCompanyCode" label="Allocation Company Code" />
+    <column name="company_bank_code" fieldName="CompanyBankCode" label="Company Bank Code" />
+    <column name="allocation_percentage" fieldName="AllocationPercentage" label="Allocation Percentage" />
+    <column name="credit_glcode" fieldName="CreditGlcode" label="Credit GL Code" />
+    <column name="br_bank_code" fieldName="BrBankCode" label="BR Bank Code" />
+    <column name="isactive" fieldName="Isactive" label="isActive" />
+    <column name="created_date" fieldName="CreatedDate" label="Created Date" format="g" />
+  </columns>
+</dataModel>

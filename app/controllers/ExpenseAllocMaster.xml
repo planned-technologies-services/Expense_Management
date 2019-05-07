@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataController name="ExpenseAllocMaster" conflictDetection="overwriteChanges" label="Expense Alloc Master" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <commands>
+    <command id="command1" type="Text">
+      <text><![CDATA[
+select
+	"ExpenseAllocMaster"."eallocmasterid" "Eallocmasterid"
+	,"ExpenseAllocMaster"."expense_company_code" "ExpenseCompanyCode"
+	,"ExpenseAllocMaster"."allocation_company_code" "AllocationCompanyCode"
+	,"ExpenseAllocMaster"."company_bank_code" "CompanyBankCode"
+	,"ExpenseAllocMaster"."allocation_percentage" "AllocationPercentage"
+	,"ExpenseAllocMaster"."credit_glcode" "CreditGlcode"
+	,"ExpenseAllocMaster"."br_bank_code" "BrBankCode"
+	,"ExpenseAllocMaster"."isactive" "Isactive"
+	,"ExpenseAllocMaster"."created_date" "CreatedDate"
+from "dbo"."ExpenseAllocMaster" "ExpenseAllocMaster"
+]]></text>
+    </command>
+  </commands>
+  <fields>
+    <field name="Eallocmasterid" type="Int32" allowNulls="false" isPrimaryKey="true" label="Eallocmasterid" />
+    <field name="ExpenseCompanyCode" type="String" allowNulls="false" label="Certify Company Code" length="10" showInSummary="true" />
+    <field name="AllocationCompanyCode" type="String" allowNulls="false" label="Allocation Company Code" showInSummary="true" length="20">
+      <items style="RadioButtonList">
+        <item value="PBS" text="Planned Building Services" />
+        <item value="PLS" text="Planned Lifestyle Services" />
+        <item value="PSS" text="Planned Security Services" />
+        <item value="CLI" text="Planned Building Services (Mid-Atlantic)" />
+      </items>
+    </field>
+    <field name="CompanyBankCode" type="String" label="Company Bank Code" length="3" showInSummary="true" />
+    <field name="AllocationPercentage" type="Decimal" allowNulls="false" label="Allocation Percentage" showInSummary="true" />
+    <field name="CreditGlcode" type="String" label="Credit GL Code" length="20" showInSummary="true" />
+    <field name="BrBankCode" type="String" allowNulls="false" label="BR Bank Code" length="1" />
+    <field name="Isactive" type="String" allowNulls="false" default="('Y')" label="isActive" length="1" />
+    <field name="CreatedDate" type="DateTime" dataFormatString="g" default="(getdate())" label="Created Date" />
+  </fields>
+  <views>
+    <view id="grid1" type="Grid" commandId="command1" label="Expense Alloc Master">
+      <headerText>$DefaultGridViewDescription</headerText>
+      <dataFields>
+        <dataField fieldName="ExpenseCompanyCode" columns="10" />
+        <dataField fieldName="AllocationCompanyCode" columns="20" />
+        <dataField fieldName="CompanyBankCode" columns="3" />
+        <dataField fieldName="AllocationPercentage" columns="15" />
+        <dataField fieldName="CreditGlcode" columns="20" />
+        <dataField fieldName="BrBankCode" columns="1" />
+        <dataField fieldName="Isactive" columns="1" />
+        <dataField fieldName="CreatedDate" columns="20" />
+      </dataFields>
+    </view>
+    <view id="editForm1" type="Form" commandId="command1" label="Review Expense Alloc Master">
+      <headerText>$DefaultEditViewDescription</headerText>
+      <categories>
+        <category id="c1" headerText="Expense Alloc Master" flow="NewColumn">
+          <description><![CDATA[$DefaultEditDescription]]></description>
+          <dataFields>
+            <dataField fieldName="ExpenseCompanyCode" columns="10" />
+            <dataField fieldName="AllocationCompanyCode" columns="3" />
+            <dataField fieldName="CompanyBankCode" columns="3" />
+            <dataField fieldName="AllocationPercentage" columns="15" />
+            <dataField fieldName="CreditGlcode" columns="20" />
+            <dataField fieldName="BrBankCode" columns="1" />
+            <dataField fieldName="Isactive" columns="1" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+    <view id="createForm1" type="Form" commandId="command1" label="New Expense Alloc Master">
+      <headerText>$DefaultCreateViewDescription</headerText>
+      <categories>
+        <category id="c1" flow="NewColumn">
+          <description><![CDATA[$DefaultNewDescription]]></description>
+          <dataFields>
+            <dataField fieldName="ExpenseCompanyCode" columns="10" />
+            <dataField fieldName="AllocationCompanyCode" columns="3" />
+            <dataField fieldName="CompanyBankCode" columns="3" />
+            <dataField fieldName="AllocationPercentage" columns="15" />
+            <dataField fieldName="CreditGlcode" columns="20" />
+            <dataField fieldName="BrBankCode" columns="1" />
+            <dataField fieldName="Isactive" columns="1" />
+          </dataFields>
+        </category>
+      </categories>
+    </view>
+  </views>
+  <actions>
+    <actionGroup id="ag1" scope="Grid">
+      <action id="a1" commandName="Select" commandArgument="editForm1" />
+      <action id="a2" commandName="Edit" />
+      <action id="a3" commandName="Delete" cssClass="Material-icon-attach-money" />
+      <action id="a6" />
+      <action id="a7" commandName="New" commandArgument="grid1" />
+      <action id="a8" commandName="Duplicate" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag2" scope="Form">
+      <action id="a1" commandName="Edit" />
+      <action id="a2" commandName="Delete" />
+      <action id="a3" commandName="Cancel" />
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" commandArgument="Save" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" commandArgument="Save" />
+      <action id="a7" whenLastCommandName="New" commandName="Insert" commandArgument="SaveAndNew" />
+      <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+      <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+      <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+      <action id="a13" whenLastCommandName="Insert" whenLastCommandArgument="Save" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenClientScript="this.hasDetails()" />
+      <action id="a14" whenLastCommandName="Insert" whenLastCommandArgument="SaveAndNew" commandName="New" commandArgument="createForm1" />
+    </actionGroup>
+    <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+      <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+    </actionGroup>
+    <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+      <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+      <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+    </actionGroup>
+    <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+      <action id="a1" commandName="ExportCsv" />
+      <action id="a2" />
+      <action id="a3" commandName="ExportRowset" />
+      <action id="a4" commandName="ExportRss" />
+      <action id="a5" />
+      <action id="a6" commandName="Import" commandArgument="createForm1" />
+      <action id="a7" commandName="DataSheet" />
+      <action id="a8" commandName="Grid" />
+    </actionGroup>
+    <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+      <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a3" whenLastCommandName="New" commandName="Insert" />
+      <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+    <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+      <action id="a1" commandName="ReportAsPdf" />
+      <action id="a2" commandName="ReportAsImage" />
+      <action id="a3" commandName="ReportAsExcel" />
+      <action id="a4" commandName="ReportAsWord" />
+    </actionGroup>
+    <actionGroup id="ag8" scope="Row">
+      <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+      <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+      <action id="a6" whenLastCommandName="New" commandName="Insert" />
+      <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+    </actionGroup>
+  </actions>
+</dataController>

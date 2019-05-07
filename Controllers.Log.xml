@@ -1,0 +1,107 @@
+<log xmlns="urn:schemas-codeontime-com:xml-builder" xmlns:aquarium="urn:schemas-codeontime-com:data-aquarium" xmlns:a="urn:schemas-codeontime-com:data-aquarium">
+  <c y="NodeSet" t="2019-03-29T12:12:09">
+    <controller name="ExpenseAllocMaster" />
+    <view id="grid1" />
+    <dataField fieldName="Eallocmasterid" />
+    <delete />
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:12:31">
+    <controller name="ExpenseAllocMaster" />
+    <view id="editForm1" />
+    <category id="c1" />
+    <dataField fieldName="Eallocmasterid" />
+    <delete />
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:12:38">
+    <controller name="ExpenseAllocMaster" />
+    <view id="createForm1" />
+    <category id="c1" />
+    <dataField fieldName="Eallocmasterid" />
+    <delete />
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:13:04">
+    <controller name="ExpenseAllocMaster" />
+    <view id="createForm1" />
+    <category id="c1" />
+    <dataField fieldName="CreatedDate" />
+    <delete />
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:13:09">
+    <controller name="ExpenseAllocMaster" />
+    <view id="editForm1" />
+    <category id="c1" />
+    <dataField fieldName="CreatedDate" />
+    <delete />
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:16:20">
+    <controller name="ExpenseAllocMaster" />
+    <field name="AllocationCompanyCode" />
+    <insert type="item">
+      <Value>PBS</Value>
+      <Text>Planned Building Services</Text>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:16:44">
+    <controller name="ExpenseAllocMaster" />
+    <field name="AllocationCompanyCode" />
+    <insert type="item">
+      <Value>PLS</Value>
+      <Text>Planned Lifestyle Services</Text>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:17:05">
+    <controller name="ExpenseAllocMaster" />
+    <field name="AllocationCompanyCode" />
+    <insert type="item">
+      <Value>PSS</Value>
+      <Text>Planned Security Services</Text>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:17:42">
+    <controller name="ExpenseAllocMaster" />
+    <field name="AllocationCompanyCode" />
+    <insert type="item">
+      <Value>CLI</Value>
+      <Text>Planned Building Services (Mid-Atlantic)</Text>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:18:12">
+    <controller name="ExpenseAllocMaster" />
+    <field name="AllocationCompanyCode" />
+    <update>
+      <ItemsStyle>RadioButtonList</ItemsStyle>
+    </update>
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:19:56">
+    <controller name="ExpenseAllocMaster" />
+    <field name="AllocationCompanyCode" />
+    <update>
+      <Length />
+    </update>
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:20:45">
+    <controller name="ExpenseAllocMaster" />
+    <field name="AllocationCompanyCode" />
+    <update>
+      <Length>20</Length>
+    </update>
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:22:06">
+    <controller name="ExpenseAllocMaster" />
+    <view id="grid1" />
+    <dataField fieldName="AllocationCompanyCode" />
+    <update>
+      <Columns>20</Columns>
+      <Hidden>false</Hidden>
+      <DataViewShowInSummary>false</DataViewShowInSummary>
+    </update>
+  </c>
+  <c y="NodeSet" t="2019-03-29T12:33:58">
+    <controller name="ExpenseAllocMaster" />
+    <actionGroup id="ag1" />
+    <action id="a3" />
+    <update>
+      <CssClass>Material-icon-attach-money</CssClass>
+    </update>
+  </c>
+</log>
